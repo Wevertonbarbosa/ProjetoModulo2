@@ -3,15 +3,25 @@ package telaDeInicio;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.text.ParseException;
 
 public class TelaInicial extends JFrame{
     JFrame frame = new JFrame();
+    FormFisica fisica = new FormFisica();
+
+//    FormJuridico juridico = new FormJuridico();
 
     public JPanel painelMain = new JPanel();
 
     public JButton btnFisica = new JButton("Pessoa Fisica");
 
     public JButton btnJuridico = new JButton("Pessoa Jurídica");
+
+    public boolean escolheuFisico = false;
+    public boolean escolheuJuridico = false;
+
+    public TelaInicial()  {
+    }
 
     public JFrame getFrame() {
         frame.setVisible(true);
@@ -43,9 +53,41 @@ public class TelaInicial extends JFrame{
         return frame;
     }
     private void acessoFisico(ActionEvent actionEvent) {
+        escolheuFisico = true;
+        fisica.getFrameFisica().setVisible(true);
+
+        fisica.lblNomeFantasiaJuridico.setVisible(false);
+        fisica.txtNomeFanatasiaJuridico.setVisible(false);
+
+        fisica.lblEmailJuridico.setVisible(false);
+        fisica.txtEmailJuridico.setVisible(false);
+
+        fisica.lblCnpjJuridico.setVisible(false);
+        fisica.txtCnpjJuridico.setVisible(false);
+
+        fisica.lblSociaJuridico.setVisible(false);
+        fisica.txtSocialJuridico.setVisible(false);
+
+        frame.dispose();
 
     }
     private void acessoJuridico(ActionEvent actionEvent) {
+        escolheuJuridico = true;
+        fisica.getFrameFisica();
+
+        fisica.lblNomeFisica.setVisible(false);
+        fisica.txtNomeFisica.setVisible(false);
+
+        fisica.lblEmailJuridico.setVisible(false);
+        fisica.txtEmailJuridico.setVisible(false);
+
+        fisica.lblCpfFisica.setVisible(false);
+        fisica.txtCpfFisica.setVisible(false);
+
+        fisica.lblTelFisica.setVisible(false);
+        fisica.txtTelefoneFisica.setVisible(false);
+
+        frame.dispose();
     }
 
     public static void main(String[] args) {

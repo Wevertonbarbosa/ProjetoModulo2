@@ -1,126 +1,177 @@
 package telaDeInicio;
 
 import javax.swing.*;
-import javax.swing.text.MaskFormatter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.text.ParseException;
 
 public class FormFisica extends JFrame {
 
-    JFrame frameFisica = new JFrame("Formulário Pessoa Física");
-    JPanel pnlFormFisica = new JPanel();
-    JTextField txtNome, txtEmail;
-    JLabel lblNome, lblEmail;
-    JFormattedTextField txtCpf, txtTelefone;
-    JLabel lblCpf, lblTelefone;
-    JButton btnCorrente, btnPoupanca;
-    JLabel lblDeposito;
-    JFormattedTextField txtDeposito;
+    JFrame frameFisica = new JFrame("Formulário");
 
-    JTextField txt = new JTextField();
+    public boolean escolheuPoupanca = false;
 
-    public FormFisica() throws ParseException {
+    public boolean escolheuCorrete = false;
+
+    public JPanel painelFisica = new JPanel();
+
+    public JLabel lblNomeFisica = new JLabel("Nome:");
+    public JTextField txtNomeFisica = new JTextField();
+    public JLabel lblEmailFisica = new JLabel("Email:");
+    public JTextField txtEmailFisica = new JTextField();
+    public JLabel lblCpfFisica = new JLabel("Cpf:");
+    public JTextField txtCpfFisica = new JTextField();
+
+    public JLabel lblTelFisica = new JLabel("Telefone: ");
+    public JTextField txtTelefoneFisica = new JTextField();
+
+    //Juridico
+    public JLabel lblNomeFantasiaJuridico = new JLabel("Nome Fantasia:");
+    public JTextField txtNomeFanatasiaJuridico = new JTextField();
+    public JLabel lblEmailJuridico = new JLabel("Email:");
+    public JTextField txtEmailJuridico = new JTextField();
+    public JLabel lblCnpjJuridico = new JLabel("CNPJ:");
+    public JTextField txtCnpjJuridico = new JTextField();
+
+    public JLabel lblSociaJuridico = new JLabel("Razão Social: ");
+
+    public JTextField txtSocialJuridico = new JTextField();
+
+    public JLabel lblDeposito = new JLabel("Deposito");
+
+    public JTextField txtDeposito = new JTextField();
+
+    public JButton btnCorrente = new JButton("Conta Corrente");
+
+    public JButton btnPoupanca = new JButton("Conta Poupança");
+
+    //Fisica
+    public String dadosNomeFisica, dadosEmailFisica;
+
+    public String dadosTel, dadosCpf;
+
+
+    //Juridica
+
+    public String dadosFantasia, dadosEmailJuridico;
+
+    public String dadosCnpj, dadosSocial;
+
+    public FormFisica() {
         getFrameFisica();
     }
 
-    public JFrame getFrameFisica() throws ParseException {
-        frameFisica.setVisible(true);
+    public JFrame getFrameFisica() {
+        frameFisica.setVisible(false);
         frameFisica.setPreferredSize(new Dimension(500, 400));
         frameFisica.setSize(500, 400);
         frameFisica.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frameFisica.setLocationRelativeTo(null);
         frameFisica.setResizable(false);
 
-        pnlFormFisica.setLayout(null);
-        pnlFormFisica.setPreferredSize(new Dimension(500,400));
-        pnlFormFisica.setSize(500,400);
-        pnlFormFisica.setBackground(new Color(0x767E8896, true));
+        painelFisica.setLayout(null);
+
+        lblNomeFisica.setBounds(70, 40, 200, 30);
+        txtNomeFisica.setBounds(140, 40, 200, 25);
+        lblNomeFantasiaJuridico.setBounds(30, 40, 200, 30);
+        txtNomeFanatasiaJuridico.setBounds(140, 40, 200, 25);
+
+        lblEmailFisica.setBounds(70, 80, 200, 30);
+        txtEmailFisica.setBounds(140, 80, 200, 25);
+        lblEmailJuridico.setBounds(70, 80, 200, 30);
+        txtEmailJuridico.setBounds(140, 80, 200, 25);
+
+        lblCpfFisica.setBounds(70, 120, 200, 30);
+        txtCpfFisica.setBounds(140, 120, 200, 25);
+        lblCnpjJuridico.setBounds(70, 110, 200, 30);
+        txtCnpjJuridico.setBounds(140, 110, 200, 25);
 
 
+        lblTelFisica.setBounds(70, 160, 200, 30);
+        txtTelefoneFisica.setBounds(140, 160, 200, 25);
+        lblSociaJuridico.setBounds(30, 150, 200, 30);
+        txtSocialJuridico.setBounds(140, 150, 200, 25);
 
-        lblNome = new JLabel("Nome:", JLabel.CENTER);
-        lblNome.setFont(new Font("Arial Black", Font.BOLD, 12));
-        lblNome.setBounds(60, 60, 100, 20);
-        txtNome = new JTextField(20);
-        txtNome.setBounds(150, 60, 250, 25);
+        lblDeposito.setBounds(70,200,200,30);
+        txtDeposito.setBounds(140,200,200,25);
 
-        lblCpf = new JLabel("CPF:", JLabel.CENTER);
-        lblCpf.setFont(new Font("Arial Black", Font.BOLD, 12));
-        lblCpf.setBounds(60, 100, 100, 20);
-        txtCpf = new JFormattedTextField(new MaskFormatter("###.###.###-##"));
-        txtCpf.setBounds(150, 100, 250, 25);
-
-        lblEmail = new JLabel("Email:", JLabel.CENTER);
-        lblEmail.setFont(new Font("Arial Black", Font.BOLD, 12));
-        lblEmail.setBounds(60, 140, 100, 20);
-        txtEmail = new JTextField();
-        txtEmail.setBounds(150, 140, 250, 25);
-
-        lblTelefone = new JLabel("Telefone:", JLabel.CENTER);
-        lblTelefone.setFont(new Font("Arial Black", Font.BOLD, 12));
-        lblTelefone.setBounds(60, 180, 100, 20);
-        txtTelefone = new JFormattedTextField(new MaskFormatter("## (##) #####-####"));
-        txtTelefone.setBounds(150, 180, 250, 25);
-
-        lblDeposito = new JLabel("Deposito:");
-        lblDeposito.setFont(new Font("Arial Black", Font.BOLD, 12));
-        lblDeposito.setBounds(78, 220, 200, 20);
-        txtDeposito = new JFormattedTextField();
-        txtDeposito.setBounds(150, 220, 250, 25);
-
-
-        btnCorrente = new JButton("Conta Corrente");
-        btnPoupanca = new JButton("Conta Poupança");
-
-        btnCorrente.setBackground(new Color(0x1010A2));
-        btnPoupanca.setBackground(new Color(0x1010A2));
-
-        btnCorrente.setForeground(new Color(0xFFFFFF));
-        btnPoupanca.setForeground(new Color(0xFFFFFF));
-
-        btnCorrente.setFont(new Font("Arial Black", Font.TYPE1_FONT, 15));
-        btnPoupanca.setFont(new Font("Arial Black", Font.TYPE1_FONT, 15));
-
-        btnCorrente.setBounds(30, 290, 200, 45);
-        btnPoupanca.setBounds(270, 290, 200, 45);
+        btnCorrente.setBounds(100, 260, 150, 30);
+        btnPoupanca.setBounds(250, 260, 150, 30);
 
         btnCorrente.addActionListener(this::importeDadosCorrente);
         btnPoupanca.addActionListener(this::importeDadosPoupanca);
 
+        painelFisica.add(lblNomeFisica);
+        painelFisica.add(txtNomeFisica);
 
+        painelFisica.add(lblEmailFisica);
+        painelFisica.add(txtEmailFisica);
 
-        pnlFormFisica.add(lblNome);
-        pnlFormFisica.add(txtNome);
+        painelFisica.add(lblCpfFisica);
+        painelFisica.add(txtCpfFisica);
 
-        pnlFormFisica.add(lblCpf);
-        pnlFormFisica.add(txtCpf);
+        painelFisica.add(lblTelFisica);
+        painelFisica.add(txtTelefoneFisica);
 
-        pnlFormFisica.add(lblTelefone);
-        pnlFormFisica.add(txtTelefone);
+        painelFisica.add(btnCorrente);
+        painelFisica.add(btnPoupanca);
 
-        pnlFormFisica.add(lblEmail);
-        pnlFormFisica.add(txtEmail);
+        //Juridco
+        painelFisica.add(lblNomeFantasiaJuridico);
+        painelFisica.add(txtNomeFanatasiaJuridico);
 
-        pnlFormFisica.add(lblDeposito);
-        pnlFormFisica.add(txtDeposito);
+        painelFisica.add(lblEmailJuridico);
+        painelFisica.add(txtEmailJuridico);
 
-        pnlFormFisica.add(btnCorrente);
-        pnlFormFisica.add(btnPoupanca);
+        painelFisica.add(lblCnpjJuridico);
+        painelFisica.add(txtCnpjJuridico);
 
-        frameFisica.add(pnlFormFisica);
+        painelFisica.add(lblSociaJuridico);
+        painelFisica.add(txtSocialJuridico);
+
+        painelFisica.add(lblDeposito);
+        painelFisica.add(txtDeposito);
+
+        frameFisica.add(painelFisica);
 
         return frameFisica;
     }
 
+
     private void importeDadosCorrente(ActionEvent actionEvent) {
+        Dados dados = new Dados();
+        TelaInicial tela = new TelaInicial();
+        dados.getFrameDados().setVisible(true);
+        frameFisica.dispose();
+
+        //Pega Valor
+        dadosNomeFisica = txtNomeFisica.getText();
+        dadosEmailFisica = txtEmailFisica.getText();
+        dadosTel = txtTelefoneFisica.getText();
+        dadosCpf = txtCpfFisica.getText();
+
+
+        //Setar o Valor
+        if (tela.escolheuFisico){
+            dados.txtMostraNomeFisica.setText(dadosNomeFisica);
+            dados.txtMostraEmailFisica.setText(dadosEmailFisica);
+            dados.txtMostrarTelFisica.setText(dadosTel);
+            dados.txtMostrarCpfFisica.setText(dadosCpf);
+            //Desligo os campos e label Juridico
+            dados.mostrarFantasia.setVisible(false);
+            dados.txtMotrarFantasia.setVisible(false);
+            JOptionPane.showMessageDialog(null, dadosNomeFisica);
+        }
     }
 
     private void importeDadosPoupanca(ActionEvent actionEvent) {
+        dadosFantasia = txtNomeFanatasiaJuridico.getText();
+        dadosEmailFisica = txtEmailJuridico.getText();
+        dadosCnpj = txtCnpjJuridico.getText();
+        dadosSocial = txtSocialJuridico.getText();
     }
 
 
-    public static void main(String[] args) throws ParseException {
+    public static void main(String[] args) {
         FormFisica fisica = new FormFisica();
         fisica.getContentPane().add(fisica);
     }
